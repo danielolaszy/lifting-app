@@ -1,6 +1,16 @@
 body {
-  background-color: #070e27;
+  background-color: #061325;
 }
 p {
   color: #7e8bb6;
+}
+.board-bg-primary {
+  background-color: #0e1c2f;
+}
+.board-text-primary {
+  color: #d8e2ef;
+}
+
+.board-text-secondary {
+  color: #9da9bb !important;
 }
