@@ -3,13 +3,13 @@ import React from "react";
 const navbar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand text-uppercase" href="#">
+      <nav className="navbar navbar-expand-lg navbar-dark">
+        <div className="container mt-4">
+          <a className="navbar-brand text-uppercase" href="#">
             liftin.club
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
@@ -17,23 +17,23 @@ const navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ms-auto">
-              <a class="nav-link active" href="#">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav ms-auto">
+              <a className="nav-link active" href="#">
                 Home
               </a>
-              <a class="nav-link" href="#">
+              <a className="nav-link" href="#">
                 Features
               </a>
-              <a class="nav-link" href="#">
+              <a className="nav-link" href="#">
                 Pricing
               </a>
-              <a class="nav-link" href="#">
+              <a className="nav-link" href="#">
                 Disabled
               </a>
-              <button class="btn btn-outline-primary" type="submit">
+              <button className="btn btn-outline-primary" type="submit">
                 Login
               </button>
             </div>
