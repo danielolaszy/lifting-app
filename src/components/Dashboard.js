@@ -305,8 +305,8 @@ const theme = {
 };
 const Dashboard = () => {
   return (
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
+    <div className="container">
+      <div className="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
         <PanelLift name="Deadlift" weight="120" percent="+5.6" percentClass="bg-success" />
         <PanelLift name="Squat" weight="100" percent="+8.5" percentClass="bg-success" />
         <PanelLift name="Bench Press" weight="75" percent="-2.7" percentClass="bg-danger" />
@@ -314,9 +314,9 @@ const Dashboard = () => {
         <PanelLift name="Squat" weight="185" percent="+7.3" percentClass="bg-success" />
         <PanelLift name="Bench Press" weight="100" percent="+5.9" percentClass="bg-success" />
       </div>
-      <div class="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <div class="col-lg-6">
-          <div style={{ height: "300px" }} class="p-0 board-bg-primary rounded-3">
+      <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
+        <div className="col-lg-6">
+          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
             <ResponsiveLine
               data={dan}
               theme={theme}
@@ -361,14 +361,14 @@ const Dashboard = () => {
             />
           </div>
         </div>
-        <div class="col-lg-6">
-          <div style={{ height: "300px" }} class="p-0 board-bg-primary rounded-3">
+        <div className="col-lg-6">
+          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
             <ResponsiveLine
-              data={club}
+              data={dan}
               theme={theme}
               margin={{ top: 25, right: 25, bottom: 50, left: 50 }}
               xScale={{ type: "point" }}
-              yScale={{ type: "linear", min: "0", max: "1000", stacked: false, reverse: false }}
+              yScale={{ type: "linear", min: "0", max: "auto", stacked: false, reverse: false }}
               yFormat=" >-.2f"
               curve="cardinal"
               axisTop={null}
@@ -408,9 +408,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div class="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <div class="col-lg-12">
-          <div style={{ height: "400px" }} class="p-3 board-bg-primary rounded-3">
+      <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
+        <div className="col-lg-12">
+          <div style={{ height: "400px" }} className="p-3 board-bg-primary rounded-3">
             <ResponsiveLine
               data={club}
               theme={theme}

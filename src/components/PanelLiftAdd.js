@@ -1,6 +1,7 @@
 import React from "react";
 
-const PanelLiftAdd = (props) => {
+const PanelLiftAdd = ({ name }) => {
+  console.log({ name });
   return (
     <>
       <h4
@@ -10,18 +11,24 @@ const PanelLiftAdd = (props) => {
       >
         +
       </h4>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                {props.name}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                {name}
               </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">input here...</div>
+            <div className="modal-body">input here...</div>
 
-            <button type="button" class="btn btn-primary">
+            <button type="button" className="btn btn-primary">
               Add
             </button>
           </div>
