@@ -14,3 +14,13 @@ p {
 .board-text-secondary {
   color: #9da9bb !important;
 }
+
+.form-bg-primary {
+  color: #d8e2ef;
+  background-color: #132238;
+}
+
+.form-bg-primary:focus {
+  color: #d8e2ef;
+  background-color: #132238;
+}

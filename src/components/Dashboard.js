@@ -1,172 +1,458 @@
 import React from "react";
 import "../App.css";
+import PanelLift from "./PanelLift";
+import { ResponsiveLine } from "@nivo/line";
 
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+const dan = [
+  {
+    "id": "deadlift",
 
-const data = [
-  {
-    name: "Jan 1",
-    dl: 140,
-    sqt: 100,
-    bp: 70,
+    "data": [
+      {
+        "x": "Jan 1",
+        "y": 100,
+      },
+      {
+        "x": "Jan 2",
+        "y": 110,
+      },
+      {
+        "x": "Jan 3",
+        "y": 120,
+      },
+      {
+        "x": "Jan 4",
+        "y": 120,
+      },
+      {
+        "x": "Jan 5",
+        "y": 130,
+      },
+      {
+        "x": "Jan 6",
+        "y": 140,
+      },
+      {
+        "x": "Jan 7",
+        "y": 130,
+      },
+      {
+        "x": "Jan 8",
+        "y": 140,
+      },
+      {
+        "x": "Jan 9",
+        "y": 140,
+      },
+      {
+        "x": "Jan 10",
+        "y": 120,
+      },
+      {
+        "x": "Jan 11",
+        "y": 140,
+      },
+      {
+        "x": "Jan 12",
+        "y": 150,
+      },
+    ],
   },
   {
-    name: "Jan 2",
-    dl: 150,
-    sqt: 105,
-    bp: 80,
+    "id": "squat",
+    "color": "hsl(269, 70%, 50%)",
+    "data": [
+      {
+        "x": "Jan 1",
+        "y": 60,
+      },
+      {
+        "x": "Jan 2",
+        "y": 70,
+      },
+      {
+        "x": "Jan 3",
+        "y": 70,
+      },
+      {
+        "x": "Jan 4",
+        "y": 80,
+      },
+      {
+        "x": "Jan 5",
+        "y": 90,
+      },
+      {
+        "x": "Jan 6",
+        "y": 90,
+      },
+      {
+        "x": "Jan 7",
+        "y": 95,
+      },
+      {
+        "x": "Jan 8",
+        "y": 80,
+      },
+      {
+        "x": "Jan 9",
+        "y": 90,
+      },
+      {
+        "x": "Jan 10",
+        "y": 100,
+      },
+      {
+        "x": "Jan 11",
+        "y": 90,
+      },
+      {
+        "x": "Jan 12",
+        "y": 100,
+      },
+    ],
   },
   {
-    name: "Jan 3",
-    dl: 160,
-    sqt: 110,
-    bp: 75,
-  },
-  {
-    name: "Jan 4",
-    dl: 160,
-    sqt: 115,
-    bp: 80,
-  },
-  {
-    name: "Jan 5",
-    dl: 150,
-    sqt: 120,
-    bp: 85,
-  },
-  {
-    name: "Jan 6",
-    dl: 160,
-    sqt: 125,
-    bp: 87.5,
-  },
-  {
-    name: "Jan 7",
-    dl: 165,
-    sqt: 130,
-    bp: 90,
+    "id": "benchpress",
+    "color": "hsl(269, 70%, 50%)",
+    "data": [
+      {
+        "x": "Jan 1",
+        "y": 60,
+      },
+      {
+        "x": "Jan 2",
+        "y": 70,
+      },
+      {
+        "x": "Jan 3",
+        "y": 75,
+      },
+      {
+        "x": "Jan 4",
+        "y": 70,
+      },
+      {
+        "x": "Jan 5",
+        "y": 70,
+      },
+      {
+        "x": "Jan 6",
+        "y": 70,
+      },
+      {
+        "x": "Jan 7",
+        "y": 75,
+      },
+      {
+        "x": "Jan 8",
+        "y": 75,
+      },
+      {
+        "x": "Jan 9",
+        "y": 70,
+      },
+      {
+        "x": "Jan 10",
+        "y": 70,
+      },
+      {
+        "x": "Jan 11",
+        "y": 70,
+      },
+      {
+        "x": "Jan 12",
+        "y": 75,
+      },
+    ],
   },
 ];
 
-const data1 = [
+const club = [
   {
-    "name": "Page A",
-    "uv": 4000,
-    "pv": 2400,
-    "amt": 2400,
+    "id": "Dan",
+    "color": "hsl(269, 70%, 50%)",
+    "data": [
+      {
+        "x": "Jan 1",
+        "y": 500,
+      },
+      {
+        "x": "Jan 2",
+        "y": 525,
+      },
+      {
+        "x": "Jan 3",
+        "y": 550,
+      },
+      {
+        "x": "Jan 4",
+        "y": 575,
+      },
+      {
+        "x": "Jan 5",
+        "y": 600,
+      },
+      {
+        "x": "Jan 6",
+        "y": 500,
+      },
+      {
+        "x": "Jan 7",
+        "y": 550,
+      },
+      {
+        "x": "Jan 8",
+        "y": 575,
+      },
+      {
+        "x": "Jan 9",
+        "y": 525,
+      },
+      {
+        "x": "Jan 10",
+        "y": 500,
+      },
+      {
+        "x": "Jan 11",
+        "y": 495,
+      },
+      {
+        "x": "Jan 12",
+        "y": 525,
+      },
+    ],
   },
   {
-    "name": "Page B",
-    "uv": 3000,
-    "pv": 1398,
-    "amt": 2210,
-  },
-  {
-    "name": "Page C",
-    "uv": 2000,
-    "pv": 9800,
-    "amt": 2290,
-  },
-  {
-    "name": "Page D",
-    "uv": 2780,
-    "pv": 3908,
-    "amt": 2000,
-  },
-  {
-    "name": "Page E",
-    "uv": 1890,
-    "pv": 4800,
-    "amt": 2181,
-  },
-  {
-    "name": "Page F",
-    "uv": 2390,
-    "pv": 3800,
-    "amt": 2500,
-  },
-  {
-    "name": "Page G",
-    "uv": 3490,
-    "pv": 4300,
-    "amt": 2100,
+    "id": "Josh",
+    "color": "hsl(269, 70%, 50%)",
+    "data": [
+      {
+        "x": "Jan 1",
+        "y": 750,
+      },
+      {
+        "x": "Jan 2",
+        "y": 770,
+      },
+      {
+        "x": "Jan 3",
+        "y": 790,
+      },
+      {
+        "x": "Jan 4",
+        "y": 810,
+      },
+      {
+        "x": "Jan 5",
+        "y": 800,
+      },
+      {
+        "x": "Jan 6",
+        "y": 790,
+      },
+      {
+        "x": "Jan 7",
+        "y": 825,
+      },
+      {
+        "x": "Jan 8",
+        "y": 850,
+      },
+      {
+        "x": "Jan 9",
+        "y": 785,
+      },
+      {
+        "x": "Jan 10",
+        "y": 820,
+      },
+      {
+        "x": "Jan 11",
+        "y": 850,
+      },
+      {
+        "x": "Jan 12",
+        "y": 875,
+      },
+    ],
   },
 ];
+
+const theme = {
+  "textColor": "#2d394a",
+  "fontSize": 11,
+  "axis": {
+    "domain": {
+      "line": {
+        "stroke": "#ffffff",
+        "strokeWidth": 0,
+      },
+    },
+    "ticks": {
+      "line": {
+        "stroke": "#777777",
+        "strokeWidth": 0,
+      },
+    },
+  },
+  "grid": {
+    "line": {
+      "stroke": "#2d394a",
+      "strokeWidth": 1,
+    },
+  },
+};
 const Dashboard = () => {
   return (
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Deadlift</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
+        <PanelLift name="Deadlift" weight="120" percent="+5.6" percentClass="bg-success" />
+        <PanelLift name="Squat" weight="100" percent="+8.5" percentClass="bg-success" />
+        <PanelLift name="Bench Press" weight="75" percent="-2.7" percentClass="bg-danger" />
+        <PanelLift name="Deadlift" weight="205" percent="+15.2" percentClass="bg-success" />
+        <PanelLift name="Squat" weight="185" percent="+7.3" percentClass="bg-success" />
+        <PanelLift name="Bench Press" weight="100" percent="+5.9" percentClass="bg-success" />
+      </div>
+      <div class="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
+        <div class="col-lg-6">
+          <div style={{ height: "300px" }} class="p-0 board-bg-primary rounded-3">
+            <ResponsiveLine
+              data={dan}
+              theme={theme}
+              margin={{ top: 25, right: 25, bottom: 50, left: 50 }}
+              xScale={{ type: "point" }}
+              yScale={{ type: "linear", min: "0", max: "auto", stacked: false, reverse: false }}
+              yFormat=" >-.2f"
+              curve="cardinal"
+              axisTop={null}
+              axisRight={null}
+              axisBottom={{
+                orient: "bottom",
+                tickSize: 0,
+                tickPadding: 20,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: 7,
+                legendPosition: "middle",
+              }}
+              axisLeft={{
+                orient: "left",
+                tickSize: 0,
+                tickPadding: 18,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: -43,
+                legendPosition: "middle",
+              }}
+              enableGridX={false}
+              colors={{ scheme: "blues" }}
+              pointSize={10}
+              pointColor={{ from: "color", modifiers: [] }}
+              pointBorderColor={{ from: "color", modifiers: [] }}
+              pointLabelYOffset={-13}
+              enableArea={true}
+              areaBlendMode="overlay"
+              areaOpacity={0.25}
+              enableCrosshair={false}
+              useMesh={true}
+              legends={[]}
+              motionConfig="stiff"
+            />
           </div>
         </div>
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Squat</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Bench Press</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Deadlift</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Squat</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
-          </div>
-        </div>
-        <div class="col">
-          <div class="p-3 board-bg-primary rounded-3 text-center text-sm-start">
-            <h6 className="board-text-primary">Bench Press</h6>
-            <h1 className="board-text-secondary fw-light">140kg</h1>
-            <span class="badge rounded-pill bg-success">+5.6%</span>
+        <div class="col-lg-6">
+          <div style={{ height: "300px" }} class="p-0 board-bg-primary rounded-3">
+            <ResponsiveLine
+              data={club}
+              theme={theme}
+              margin={{ top: 25, right: 25, bottom: 50, left: 50 }}
+              xScale={{ type: "point" }}
+              yScale={{ type: "linear", min: "0", max: "1000", stacked: false, reverse: false }}
+              yFormat=" >-.2f"
+              curve="cardinal"
+              axisTop={null}
+              axisRight={null}
+              axisBottom={{
+                orient: "bottom",
+                tickSize: 0,
+                tickPadding: 20,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: 7,
+                legendPosition: "middle",
+              }}
+              axisLeft={{
+                orient: "left",
+                tickSize: 0,
+                tickPadding: 18,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: -43,
+                legendPosition: "middle",
+              }}
+              enableGridX={false}
+              colors={{ scheme: "blues" }}
+              pointSize={10}
+              pointColor={{ from: "color", modifiers: [] }}
+              pointBorderColor={{ from: "color", modifiers: [] }}
+              pointLabelYOffset={-13}
+              enableArea={true}
+              areaBlendMode="overlay"
+              areaOpacity={0.25}
+              enableCrosshair={false}
+              useMesh={true}
+              legends={[]}
+              motionConfig="stiff"
+            />
           </div>
         </div>
       </div>
       <div class="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <div class="col-lg-6">
-          <div class="p-3 board-bg-primary rounded-3">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                <Line type="monotone" dataKey="dl" strokeWidth={2} stroke="#8884d8" />
-                <Line type="monotone" dataKey="sqt" strokeWidth={2} stroke="#8884d8" />
-                <Line type="monotone" dataKey="bp" strokeWidth={2} stroke="#8884d8" />
-
-                <CartesianGrid horizontal={true} vertical={false} stroke="#2d394a" strokeDasharray="4 5" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: "0.7em", fill: "#2d394a" }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: "0.7em", fill: "#2d394a" }} />
-                <Tooltip />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="p-3 board-bg-primary rounded-3">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart width={600} height={300} data={data1} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                <Line type="monotone" dataKey="uv" strokeWidth={2} stroke="#8884d8" />
-                <CartesianGrid horizontal={true} vertical={false} stroke="#2d394a" strokeDasharray="4 5" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: "0.7em", fill: "#2d394a" }} />
-                <YAxis axisLine={false} tickLine={false} unit="Kg" tick={{ fontSize: "0.7em", fill: "#2d394a" }} />
-                <Tooltip />
-              </LineChart>
-            </ResponsiveContainer>
+        <div class="col-lg-12">
+          <div style={{ height: "400px" }} class="p-3 board-bg-primary rounded-3">
+            <ResponsiveLine
+              data={club}
+              theme={theme}
+              margin={{ top: 25, right: 25, bottom: 50, left: 50 }}
+              xScale={{ type: "point" }}
+              yScale={{ type: "linear", min: "0", max: "1000", stacked: false, reverse: false }}
+              yFormat=" >-.2f"
+              curve="cardinal"
+              axisTop={null}
+              axisRight={null}
+              axisBottom={{
+                orient: "bottom",
+                tickSize: 0,
+                tickPadding: 20,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: 7,
+                legendPosition: "middle",
+              }}
+              axisLeft={{
+                orient: "left",
+                tickSize: 0,
+                tickPadding: 18,
+                tickRotation: 0,
+                legend: "",
+                legendOffset: -43,
+                legendPosition: "middle",
+              }}
+              enableGridX={false}
+              colors={{ scheme: "blues" }}
+              pointSize={10}
+              pointColor={{ from: "color", modifiers: [] }}
+              pointBorderColor={{ from: "color", modifiers: [] }}
+              pointLabelYOffset={-13}
+              enableArea={true}
+              areaBlendMode="overlay"
+              areaOpacity={0.25}
+              enableCrosshair={false}
+              useMesh={true}
+              legends={[]}
+              motionConfig="stiff"
+            />
           </div>
         </div>
       </div>
