@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import PanelLiftAdd from "./components/PanelLiftAdd";
 import Hero from "./components/Hero";
+import Add from "./components/Add";
 
 function App() {
   return (
@@ -35,24 +36,20 @@ function App() {
                   Dashboard
                 </Link>
                 <Link className="nav-link" to="/test">
-                  test
+                  Test
+                </Link>
+                <Link className="nav-link" to="/add">
+                  Add
                 </Link>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
-          <Route path="/test">
-            <PanelLiftAdd />
-          </Route>
-
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/add" component={Add} />
+          <Route path="/test" component={PanelLiftAdd} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     </>

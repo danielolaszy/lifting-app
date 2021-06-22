@@ -307,12 +307,12 @@ const Dashboard = () => {
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
-        <PanelLift exercise="Deadlift" weight="120" lifter="Dan" percent="+5.6" percentClass="bg-success" />
-        <PanelLift exercise="Squat" weight="100" lifter="Dan" percent="+8.5" percentClass="bg-success" />
-        <PanelLift exercise="Bench Press" weight="75" lifter="Dan" percent="-2.7" percentClass="bg-danger" />
-        <PanelLift exercise="Deadlift" weight="205" lifter="Josh" percent="+15.2" percentClass="bg-success" />
-        <PanelLift exercise="Squat" weight="185" lifter="Josh" percent="+7.3" percentClass="bg-success" />
-        <PanelLift exercise="Bench Press" weight="100" lifter="Josh" percent="+5.9" percentClass="bg-success" />
+        <PanelLift exercise="Deadlift" weight={120} lifter="Dan" percent="+5.6" percentClass="bg-success" />
+        <PanelLift exercise="Squat" weight={100} lifter="Dan" percent="+8.5" percentClass="bg-success" />
+        <PanelLift exercise="Bench Press" weight={75} lifter="Dan" percent="-2.7" percentClass="bg-danger" />
+        <PanelLift exercise="Deadlift" weight={205} lifter="Josh" percent="+15.2" percentClass="bg-success" />
+        <PanelLift exercise="Squat" weight={185} lifter="Josh" percent="+7.3" percentClass="bg-success" />
+        <PanelLift exercise="Bench Press" weight={100} lifter="Josh" percent="+5.9" percentClass="bg-success" />
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
         <div className="col-lg-6">
