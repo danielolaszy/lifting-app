@@ -1,18 +1,23 @@
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
-// import AddLifts from "./components/AddLifts";
 import Dashboard from "./components/Dashboard";
-// import Hero from "./components/Hero";
-// import Features from "./components/Features";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
-      <Navbar />
-      {/* <AddLifts /> */}
-      <Dashboard />
-      {/* <Hero /> */}
-      {/* <Features /> */}
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </>
   );
 }
