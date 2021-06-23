@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import PanelLiftAdd from "./components/PanelLiftAdd";
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Router>
-        <nav className="navbar navbar-expand-lg navbar-dark mt-2 mb-4">
+        <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="container mt-4">
             <Link className="navbar-brand text-uppercase" to="/">
               liftin.club
