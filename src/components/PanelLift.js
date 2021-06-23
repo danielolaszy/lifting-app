@@ -6,8 +6,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
   return (
     <Router>
-      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} />} />
-      <div className="col ">
+      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} lifter={lifter} />} />
+      <Route path="/dashboard" render={ () =>
+        <div className="col ">
         <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start ">
           <div className="position-relative">
             <h4 className="position-absolute top-0 start-100 translate-middle board-text-secondary fw-light">
@@ -24,7 +25,8 @@ const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
             <span className={"badge rounded-pill " + percentClass}>{percent}%</span>
           </div>
         </div>
-      </div>
+      </div> } />
+      
     </Router>
   );
 };

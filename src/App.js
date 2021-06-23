@@ -35,19 +35,12 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
-                <Link className="nav-link" to="/test">
-                  Test
-                </Link>
-                <Link className="nav-link" to="/add">
-                  Add
-                </Link>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
           <Route path="/add" component={Add} />
-          <Route path="/test" component={PanelLiftAdd} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
