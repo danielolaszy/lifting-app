@@ -21,7 +21,7 @@ const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
   };
   const item = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: -100 },
+    hidden: { opacity: 0, y: -50 },
   };
   return (
     <Router>

@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import PanelLift from "./PanelLift";
 import { ResponsiveLine } from "@nivo/line";
+import { motion } from "framer-motion";
 
 const dan = [
   {
@@ -304,6 +305,25 @@ const theme = {
   },
 };
 
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.05,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+const item = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: -100 },
+};
 const Dashboard = () => {
   return (
     <div className="container">
@@ -316,7 +336,7 @@ const Dashboard = () => {
         <PanelLift exercise="Bench Press" weight={100} lifter="Josh" percent="+5.9" percentClass="bg-success" />
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <div className="col-lg-6">
+        <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6">
           <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
             <ResponsiveLine
               data={dan}
@@ -361,8 +381,8 @@ const Dashboard = () => {
               motionConfig="stiff"
             />
           </div>
-        </div>
-        <div className="col-lg-6">
+        </motion.div>
+        <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6">
           <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
             <ResponsiveLine
               data={dan}
@@ -407,10 +427,10 @@ const Dashboard = () => {
               motionConfig="stiff"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <div className="col-lg-12">
+        <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-12">
           <div style={{ height: "400px" }} className="p-3 board-bg-primary rounded-3">
             <ResponsiveLine
               data={club}
@@ -455,7 +475,7 @@ const Dashboard = () => {
               motionConfig="stiff"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
