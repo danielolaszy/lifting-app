@@ -1,9 +1,10 @@
 body {
   /* background-color: #061325; */
-  background-color: white;
+  background-color: #061325;
 }
 p {
-  color: #7e8bb6;
+  /* color: #7e8bb6; */
+  color: #9da9bb;
 }
 .board-bg-primary {
   background-color: #0e1c2f;
