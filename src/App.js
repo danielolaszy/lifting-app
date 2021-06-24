@@ -40,7 +40,6 @@ function App() {
           </div>
         </nav>
         <Switch>
-          <Route path="/add" component={Add} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
