@@ -1,4 +1,3 @@
-import React from "react";
 import "../App.css";
 import PanelLift from "./PanelLift";
 import { ResponsiveLine } from "@nivo/line";
@@ -324,6 +323,7 @@ const item = {
   visible: { opacity: 1, y: 0 },
   hidden: { opacity: 0, y: -100 },
 };
+
 const Dashboard = () => {
   return (
     <div className="container">

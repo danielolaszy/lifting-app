@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import PanelLiftAdd from "./PanelLiftAdd";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";

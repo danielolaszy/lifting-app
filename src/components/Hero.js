@@ -1,28 +1,10 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import img from "../assets/img/google.jpg";
-const Hero = () => {
-  const list = {
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.05,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
-    },
-  };
-  const item = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: -50 },
-  };
+
+const Hero = ({ list, item }) => {
   return (
-    <>
+    <Router>
       <motion.div initial="hidden" animate="visible" variants={list} class="px-4 pt-5 my-5 text-center border-bottom">
         <motion.h1 variants={item} class="display-4 fw-bold board-text-primary">
           Lorem Ipsum
@@ -32,14 +14,18 @@ const Hero = () => {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eaque officia inventore ut ipsa.
             Nesciunt eum, delectus voluptatibus est voluptatem cupiditate magni ipsum nisi in!
           </motion.p>
-          <motion.div variants={item} class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">
-              Dashboard
-            </button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-              Secondary
-            </button>
-          </motion.div>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <motion.div variants={item}>
+              <Link class="btn btn-primary btn-lg px-4 me-sm-3" to="/dashboard">
+                Dashboard
+              </Link>
+            </motion.div>
+            <motion.div variants={item}>
+              <Link type="button" class="btn btn-outline-secondary btn-lg px-4" to="/">
+                Log in
+              </Link>
+            </motion.div>
+          </div>
         </div>
         <div class="overflow-hidden" style={{ maxHeight: "30vh" }}>
           <div class="container px-5">
@@ -54,7 +40,7 @@ const Hero = () => {
           </div>
         </div>
       </motion.div>
-    </>
+    </Router>
   );
 };
 

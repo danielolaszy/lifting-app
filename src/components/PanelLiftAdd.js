@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -45,7 +44,6 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
               ></input>
               <span className="input-group-text form-bg-primary border-0">kg</span>
             </motion.div>
-
             <motion.input variants={item} className="btn btn-success" type="submit" value="Add"></motion.input>
           </div>
         </div>

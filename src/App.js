@@ -1,11 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import Navbar from "./components/Navbar";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
-import PanelLiftAdd from "./components/PanelLiftAdd";
-import Hero from "./components/Hero";
-import Add from "./components/Add";
 
 function App() {
   return (
