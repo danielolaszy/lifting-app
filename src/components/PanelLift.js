@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import PanelLiftAdd from "./PanelLiftAdd";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
   const list = {
@@ -36,7 +36,6 @@ const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
                     +
                   </Link>
                 </h4>
-                {/* <PanelLiftAdd exercise={exercise} lifter={lifter} /> */}
                 <motion.h6 variants={item} className="board-text-primary">
                   {exercise}
                 </motion.h6>
