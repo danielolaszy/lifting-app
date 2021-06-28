@@ -25,7 +25,7 @@ const Hero = ({ list, item }) => {
             </Link>
           </motion.div>
           <motion.div variants={item}>
-            <Link type="button" className="btn btn-outline-secondary btn-lg px-4" to="/">
+            <Link type="button" className="btn btn-outline-secondary btn-lg px-4" to="/login">
               Log in
             </Link>
           </motion.div>

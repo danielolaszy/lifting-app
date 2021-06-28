@@ -1,13 +1,15 @@
 import "./App.css";
+import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container mt-4">
@@ -33,24 +35,28 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
-                <Link className="nav-link" to="/dashboard">
+                <Link className="nav-link" to="/Signup">
                   Sign Up
                 </Link>
-                <Link className="nav-link" to="/dashboard">
+                <Link className="nav-link" to="/login">
                   Log In
+                </Link>
+                <Link className="nav-link" to="/Profile">
+                  Profile
                 </Link>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 
