@@ -332,8 +332,8 @@ const Dashboard = () => {
         <PanelLift exercise="Bench Press" weight={100} lifter="Josh" percent="+5.9" percentClass="bg-success" />
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
-        <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6">
-          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
+        <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6 ">
+          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3 color-alt border">
             <ResponsiveLine
               data={dan}
               theme={theme}
@@ -363,7 +363,7 @@ const Dashboard = () => {
                 legendPosition: "middle",
               }}
               enableGridX={false}
-              colors={{ scheme: "blues" }}
+              colors={{ scheme: "category10" }}
               pointSize={10}
               pointColor={{ from: "color", modifiers: [] }}
               pointBorderColor={{ from: "color", modifiers: [] }}
@@ -379,7 +379,7 @@ const Dashboard = () => {
           </div>
         </motion.div>
         <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6">
-          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3">
+          <div style={{ height: "300px" }} className="p-0 board-bg-primary rounded-3 color-alt border">
             <ResponsiveLine
               data={dan}
               theme={theme}
@@ -409,7 +409,7 @@ const Dashboard = () => {
                 legendPosition: "middle",
               }}
               enableGridX={false}
-              colors={{ scheme: "blues" }}
+              colors={{ scheme: "category10" }}
               pointSize={10}
               pointColor={{ from: "color", modifiers: [] }}
               pointBorderColor={{ from: "color", modifiers: [] }}
@@ -427,7 +427,7 @@ const Dashboard = () => {
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
         <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-12">
-          <div style={{ height: "400px" }} className="p-3 board-bg-primary rounded-3">
+          <div style={{ height: "400px" }} className="p-3 board-bg-primary rounded-3 color-alt border">
             <ResponsiveLine
               data={club}
               theme={theme}
@@ -457,7 +457,7 @@ const Dashboard = () => {
                 legendPosition: "middle",
               }}
               enableGridX={false}
-              colors={{ scheme: "blues" }}
+              colors={{ scheme: "category10" }}
               pointSize={10}
               pointColor={{ from: "color", modifiers: [] }}
               pointBorderColor={{ from: "color", modifiers: [] }}

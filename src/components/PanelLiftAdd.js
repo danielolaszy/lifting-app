@@ -24,7 +24,7 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
 
   return (
     <motion.div initial="hidden" animate="visible" variants={list} className="col">
-      <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start ">
+      <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start color-alt border">
         <div className="position-relative" style={{ height: "7em" }}>
           <h4 className="position-absolute top-0 start-100 translate-middle board-text-secondary fw-light">
             <Link className="text-decoration-none text-reset" to="/dashboard">
@@ -40,9 +40,9 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
                 pattern="[0-9]*"
                 inputMode="numeric"
                 placeholder={weight}
-                className="form-control form-bg-primary border-0"
+                className="form-control form-bg-primary border"
               ></input>
-              <span className="input-group-text form-bg-primary border-0">kg</span>
+              <span className="input-group-text form-bg-primary border">kg</span>
             </motion.div>
             <motion.input variants={item} className="btn btn-success" type="submit" value="Add"></motion.input>
           </div>

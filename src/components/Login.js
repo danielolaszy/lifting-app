@@ -1,19 +1,11 @@
 import React from "react";
-import { useAuth } from "../contexts/AuthContext";
 
-const Signup = () => {
-  //   const { signup } = useAuth();
-
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-
-  //     signup(email);
-  //   };
+const Login = () => {
   return (
     <>
       <div className="row d-flex justify-content-center">
         <div className="col-2 board-bg-primary p-3 rounded-3 text-center text-sm-start color-alt border">
-          <h4 className="text-center">Sign Up</h4>
+          <h4 className="text-center">Log In</h4>
           <form>
             <div className="position-relative">
               <div className="d-grid gap-3">
@@ -26,12 +18,6 @@ const Signup = () => {
                 <div>
                   <label for="exampleInputPassword1" class="form-label">
                     Password
-                  </label>
-                  <input type="password" class="form-control" id="exampleInputPassword1"></input>
-                </div>
-                <div>
-                  <label for="exampleInputPassword1" class="form-label">
-                    Confirm Password
                   </label>
                   <input type="password" class="form-control" id="exampleInputPassword1"></input>
                 </div>
@@ -48,4 +34,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

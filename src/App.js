@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 function App() {
   return (
     <>
       <Router>
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container mt-4">
             <Link className="navbar-brand text-uppercase" to="/">
               liftin.club
@@ -35,13 +36,17 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Sign Up
                 </Link>
+                <Link className="nav-link" to="/dashboard">
+                  Log In
+                </Link>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
-          <Route path="/signup" component={Signup} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>

@@ -29,7 +29,7 @@ const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
         path="/dashboard"
         render={() => (
           <motion.div initial="hidden" animate="visible" variants={list} className="col">
-            <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start ">
+            <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start color-alt border">
               <div className="position-relative" style={{ height: "7em" }}>
                 <h4 className="position-absolute top-0 start-100 translate-middle board-text-secondary fw-light">
                   <Link className="text-decoration-none text-reset" to="/add">

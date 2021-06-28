@@ -1,28 +1,20 @@
 body {
-  /* background-color: #061325; */
-  background-color: #061325;
+  background-color: #f6f9ff;
 }
+
+.color-alt {
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #06152b;
+}
+
 p {
-  /* color: #7e8bb6; */
-  color: #9da9bb;
-}
-.board-bg-primary {
-  background-color: #0e1c2f;
-}
-.board-text-primary {
-  color: #d8e2ef;
-}
-
-.board-text-secondary {
-  color: #9da9bb !important;
-}
-
-.form-bg-primary {
-  color: #d8e2ef;
-  background-color: #132238;
-}
-
-.form-bg-primary:focus {
-  color: #d8e2ef;
-  background-color: #132238;
+  color: #809fb8;
 }

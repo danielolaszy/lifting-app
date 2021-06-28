@@ -4,12 +4,17 @@ import img from "../assets/img/google.jpg";
 
 const Hero = ({ list, item }) => {
   return (
-    <motion.div initial="hidden" animate="visible" variants={list} className="px-4 pt-5 my-5 text-center border-bottom">
-      <motion.h1 variants={item} className="display-4 fw-bold board-text-primary">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={list}
+      className="px-4 pt-5 my-5 text-center border-bottom bg-alt"
+    >
+      <motion.h1 variants={item} className="display-4 fw-bold">
         Lorem Ipsum
       </motion.h1>
       <div className="col-lg-6 mx-auto">
-        <motion.p variants={item} className="lead mb-4 board-text-secondary">
+        <motion.p variants={item} className="lead mb-4">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eaque officia inventore ut ipsa. Nesciunt
           eum, delectus voluptatibus est voluptatem cupiditate magni ipsum nisi in!
         </motion.p>
