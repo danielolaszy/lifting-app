@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -31,11 +32,15 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
+                <Link className="nav-link" to="/dashboard">
+                  Sign Up
+                </Link>
               </div>
             </div>
           </div>
         </nav>
         <Switch>
+          <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
