@@ -1,6 +1,24 @@
 import React from "react";
+import { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 
 const ProfilePanel = () => {
+  const [error, setError] = useState("");
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
+
+  const handleLogout = async () => {
+    setError("");
+
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
+  };
+
   return (
     <div className="col">
       <div className="p-3 rounded-3 text-center text-sm-start color-alt border ">
@@ -10,11 +28,22 @@ const ProfilePanel = () => {
             className="img-fluid border mx-auto d-block rounded-circle"
             style={{ maxWidth: "100px" }}
           ></img>
-          <h3 className="text-center">Dan</h3>
-          <h6 className="text-center">Good job, you total lifts are 680lbs </h6>
-
-          <button type="button" className="btn btn-danger">
-            Delete
+          {error && (
+            <div class="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
+          {/* currentUser ? <Component {...props} /> : <Redirect to="/login" /> */}
+          <h3 className="text-center">{currentUser && currentUser.email}</h3>
+          <h6 className="text-center">Good job, you total lifts are 680lbs or 308kg </h6>
+          <div>
+            <input class="form-control form-control-sm" id="formFileSm" type="file"></input>
+          </div>
+          <Link to="/edit-profile" className="btn btn-primary">
+            Edit Profile
+          </Link>
+          <button type="button" onClick={handleLogout} className="btn btn-danger">
+            Log out
           </button>
         </div>
       </div>

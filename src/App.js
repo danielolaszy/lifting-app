@@ -1,4 +1,6 @@
 import "./App.css";
+import firebase from "firebase/app";
+import "firebase/auth";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
@@ -8,6 +10,7 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 
 function App() {
+  let user = firebase.auth().currentUser;
   return (
     <AuthProvider>
       <Router>
@@ -35,15 +38,16 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
-                <Link className="nav-link" to="/Signup">
-                  Sign Up
-                </Link>
-                <Link className="nav-link" to="/login">
-                  Log In
-                </Link>
-                <Link className="nav-link" to="/Profile">
-                  Profile
-                </Link>
+                {user && (
+                  <Link className="nav-link" to="/login">
+                    Log In
+                  </Link>
+                )}
+                {!user && (
+                  <Link className="nav-link" to="/Profile">
+                    Profile
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -52,7 +56,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>

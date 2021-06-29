@@ -3,6 +3,7 @@ import PanelLift from "./PanelLift";
 import { ResponsiveLine } from "@nivo/line";
 import { motion } from "framer-motion";
 import ProfilePanel from "./ProfilePanel";
+import Privateroute from "./Privateroute";
 
 const Profile = () => {
   return (
