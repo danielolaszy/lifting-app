@@ -1,4 +1,6 @@
 import "./App.css";
+import { useAuth } from "./contexts/AuthContext";
+import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -8,9 +10,29 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Privateroute from "./components/Privateroute";
 
 function App() {
-  let user = firebase.auth().currentUser;
+  const [isAuth, setIsAuth] = useState(false);
+  // const { currentUser } = useAuth();
+  const user = firebase.auth().currentUser;
+
+  const checkAuth = () => {
+    if (user) {
+      return (
+        <Link className="nav-link" to="/Profile">
+          Profile
+        </Link>
+      );
+    } else {
+      return (
+        <Link className="nav-link" to="/login">
+          Log In
+        </Link>
+      );
+    }
+  };
+
   return (
     <AuthProvider>
       <Router>
@@ -38,22 +60,14 @@ function App() {
                 <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
-                {user && (
-                  <Link className="nav-link" to="/login">
-                    Log In
-                  </Link>
-                )}
-                {!user && (
-                  <Link className="nav-link" to="/Profile">
-                    Profile
-                  </Link>
-                )}
+                {checkAuth()}
               </div>
             </div>
           </div>
         </nav>
         <Switch>
-          <Route path="/profile" component={Profile} />
+          <Privateroute path="/profile" component={Profile} isAuth={isAuth} />
+          {/* <Route path="/profile" component={Profile} /> */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
