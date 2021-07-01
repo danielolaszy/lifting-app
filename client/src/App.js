@@ -35,7 +35,7 @@ function App() {
 
   const [exercise, setExercise] = useState("Deadlift");
   const [weight, setWeight] = useState(420);
-  const [lifter, setLifter] = useState("Dan");
+  const [lifter, setLifter] = useState("default user");
   const [percent, setPercent] = useState(5.6);
   const [isGain, setIsGain] = useState(true);
 
