@@ -1,5 +1,4 @@
 import "./App.css";
-import { useAuth } from "./contexts/AuthContext";
 import { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -17,7 +16,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   // const { currentUser } = useAuth();
   const user = firebase.auth().currentUser;
-
+  // console.log(user.uid);
   const checkAuth = () => {
     if (user) {
       return (
@@ -33,6 +32,12 @@ function App() {
       );
     }
   };
+
+  const [exercise, setExercise] = useState("Deadlift");
+  const [weight, setWeight] = useState(420);
+  const [lifter, setLifter] = useState("Dan");
+  const [percent, setPercent] = useState(5.6);
+  const [isGain, setIsGain] = useState(true);
 
   return (
     <AuthProvider>
@@ -67,12 +72,18 @@ function App() {
           </div>
         </nav>
         <Switch>
-          <Privateroute path="/profile" component={Profile} isAuth={isAuth} />
-          {/* <Route path="/profile" component={Profile} /> */}
-          <Route path="/add" component={PanelLiftAdd} />
+          <Privateroute
+            path="/profile"
+            children={<Profile exercise={exercise} weight={weight} lifter={lifter} percent={percent} />}
+            isAuth={isAuth}
+          />
+          <Route path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} lifter="pogchamp" />} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route
+            path="/dashboard"
+            children={<Dashboard exercise={exercise} weight={weight} lifter={lifter} percent={percent} />}
+          />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PanelLiftAdd from "./PanelLiftAdd";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const PanelLift = ({ exercise, weight, percent, percentClass, user }) => {
+const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
   const list = {
     visible: {
       opacity: 1,
@@ -24,7 +24,7 @@ const PanelLift = ({ exercise, weight, percent, percentClass, user }) => {
   };
   return (
     <Router>
-      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} user={user} />} />
+      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} lifter={lifter} />} />
       <Route
         exact
         path="/profile"

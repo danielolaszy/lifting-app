@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
+import firebase from "firebase/app";
+import "firebase/auth";
+import { useState } from "react";
+import Axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-const PanelLiftAdd = ({ exercise, lifter, weight }) => {
+const PanelLiftAdd = ({ exercise, lifter }) => {
   const list = {
     visible: {
       opacity: 1,
@@ -20,6 +24,20 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
   const item = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -50 },
+  };
+
+  const [weight, setWeight] = useState(0);
+  const user = firebase.auth().currentUser;
+
+  const addWeight = () => {
+    Axios.post("http://localhost:3001/addlift", {
+      lifterId: user.uid,
+      lifter: lifter,
+      exercise: exercise,
+      weight: weight,
+    }).then(() => {
+      console.log("success");
+    });
   };
 
   return (
@@ -41,10 +59,19 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
                 inputMode="numeric"
                 placeholder={weight}
                 className="form-control form-bg-primary border"
+                onChange={(event) => {
+                  setWeight(event.target.value);
+                }}
               ></input>
               <span className="input-group-text form-bg-primary border">kg</span>
             </motion.div>
-            <motion.input variants={item} className="btn btn-success" type="submit" value="Add"></motion.input>
+            <motion.input
+              variants={item}
+              onClick={addWeight}
+              className="btn btn-success"
+              type="submit"
+              value="Add"
+            ></motion.input>
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ const ProfilePanel = () => {
             </div>
           )}
           {/* currentUser ? <Component {...props} /> : <Redirect to="/login" /> */}
-          <h3 className="text-center">{currentUser && currentUser.email}</h3>
+          <h3 className="text-center">{currentUser.email}</h3>
           <h6 className="text-center">Good job, you total lifts are 680lbs or 308kg </h6>
           <div>
             <input class="form-control form-control-sm" id="formFileSm" type="file"></input>
