@@ -27,7 +27,7 @@ const PanelLiftAdd = ({ exercise, lifter, weight }) => {
       <div className="p-3 board-bg-primary rounded-3 text-center text-sm-start color-alt border">
         <div className="position-relative" style={{ height: "7em" }}>
           <h4 className="position-absolute top-0 start-100 translate-middle board-text-secondary fw-light">
-            <Link className="text-decoration-none text-reset" to="/dashboard">
+            <Link className="text-decoration-none text-reset" to="/profile">
               -
             </Link>
           </h4>

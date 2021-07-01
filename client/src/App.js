@@ -11,6 +11,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Privateroute from "./components/Privateroute";
+import PanelLiftAdd from "./components/PanelLiftAdd";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -68,6 +69,7 @@ function App() {
         <Switch>
           <Privateroute path="/profile" component={Profile} isAuth={isAuth} />
           {/* <Route path="/profile" component={Profile} /> */}
+          <Route path="/add" component={PanelLiftAdd} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
