@@ -1,4 +1,6 @@
 import "../App.css";
+import { useState, useEffect } from "react";
+import Axios from "axios";
 import PanelLift from "./PanelLift";
 import { ResponsiveLine } from "@nivo/line";
 import { motion } from "framer-motion";
@@ -320,16 +322,91 @@ const list = {
   },
 };
 
-const Dashboard = ({ exercise, weight, lifter, percent }) => {
+const Dashboard = () => {
+  const [deadlift, setDeadlift] = useState({});
+  const [squat, setSquat] = useState({});
+  const [benchPress, setBenchPress] = useState({});
+
+  const getDeadlifts = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Deadlift") {
+          setDeadlift(lift);
+        }
+      });
+    });
+  };
+
+  const getSquat = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Squat") {
+          setSquat(lift);
+        }
+      });
+    });
+  };
+
+  const getBenchPress = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Bench Press") {
+          setBenchPress(lift);
+        }
+      });
+    });
+  };
+
+  useEffect(() => {
+    getDeadlifts();
+    getSquat();
+    getBenchPress();
+  }, []);
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-success" />
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-success" />
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-danger" />
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-success" />
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-success" />
-        <PanelLift exercise={exercise} weight={weight} lifter={lifter} percent={percent} percentClass="bg-success" />
+        <PanelLift
+          exercise={deadlift.exercise}
+          weight={deadlift.weight}
+          lifter={deadlift.lifter}
+          percent="5.6%"
+          percentClass="bg-success"
+        />
+        <PanelLift
+          exercise={squat.exercise}
+          weight={squat.weight}
+          lifter={squat.lifter}
+          percent="5.6%"
+          percentClass="bg-success"
+        />
+        <PanelLift
+          exercise={benchPress.exercise}
+          weight={benchPress.weight}
+          lifter={benchPress.lifter}
+          percent="5.6%"
+          percentClass="bg-danger"
+        />
+        <PanelLift
+          exercise={deadlift.exercise}
+          weight={deadlift.weight}
+          lifter={deadlift.lifter}
+          percent="5.6%"
+          percentClass="bg-success"
+        />
+        <PanelLift
+          exercise={squat.exercise}
+          weight={squat.weight}
+          lifter={squat.lifter}
+          percent="5.6%"
+          percentClass="bg-success"
+        />
+        <PanelLift
+          exercise={benchPress.exercise}
+          weight={benchPress.weight}
+          lifter={benchPress.lifter}
+          percent="5.6%"
+          percentClass="bg-success"
+        />
       </div>
       <div className="row row row-cols-1 row-cols-lg-6 g-2 g-lg-3 pt-2 pt-lg-3">
         <motion.div initial="hidden" animate="visible" variants={list} className="col-lg-6 ">

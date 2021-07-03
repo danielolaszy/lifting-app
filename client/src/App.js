@@ -73,10 +73,7 @@ function App() {
           /> */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route
-            path="/dashboard"
-            children={<Dashboard exercise="pogDeadlift" weight="pog" lifter="pogchamp" percent="5/7%" />}
-          />
+          <Route path="/dashboard" children={<Dashboard />} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
