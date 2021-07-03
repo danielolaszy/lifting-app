@@ -27,9 +27,10 @@ const ProfilePanel = () => {
             src="https://picsum.photos/200"
             className="img-fluid border mx-auto d-block rounded-circle"
             style={{ maxWidth: "100px" }}
+            alt="profile"
           ></img>
           {error && (
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
               {error}
             </div>
           )}
@@ -37,7 +38,7 @@ const ProfilePanel = () => {
           <h3 className="text-center">{currentUser.email}</h3>
           <h6 className="text-center">Good job, you total lifts are 680lbs or 308kg </h6>
           <div>
-            <input class="form-control form-control-sm" id="formFileSm" type="file"></input>
+            <input className="form-control form-control-sm" id="formFileSm" type="file"></input>
           </div>
           <Link to="/edit-profile" className="btn btn-primary">
             Edit Profile

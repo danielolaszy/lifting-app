@@ -10,15 +10,16 @@ const Table = () => {
       setLiftsList(response.data);
     });
   };
+
   useEffect(() => {
     getLifts();
   }, []);
 
   return (
     <>
-      <div className="col">
+      <div className="col mt-2 mt-lg-3">
         <div className="p-3 rounded-3 text-center text-sm-start color-alt border ">
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -31,27 +32,23 @@ const Table = () => {
             <tbody>
               {liftsList.map((lift) => {
                 return (
-                  <>
-                    <tr>
-                      <th key={lift.id} scope="row">
-                        {lift.id}
-                      </th>
-                      <td>{lift.lifter_name}</td>
-                      <td>{lift.exercise}</td>
-                      <td>
-                        {lift.weight}
-                        <small> kg</small>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-success">
-                          Edit
-                        </button>
-                        <button type="button" class="btn btn-danger">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </>
+                  <tr key={lift.id}>
+                    <th scope="row">{lift.id}</th>
+                    <td>{lift.lifter_name}</td>
+                    <td>{lift.exercise}</td>
+                    <td>
+                      {lift.weight}
+                      <small> kg</small>
+                    </td>
+                    <td className="text-center">
+                      <button type="button" className="btn btn-success">
+                        Edit
+                      </button>
+                      <button type="button" className="btn btn-danger ms-2">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
                 );
               })}
             </tbody>

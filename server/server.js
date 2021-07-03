@@ -12,6 +12,8 @@ const db = mysql.createConnection({
   password: "password",
   database: "liftinclub",
 });
+danUID = "mbsN9DPx5kYs2NLDt52BhGaqbqq2";
+joshUID = "aEChwXDx2vXf9bmQEVQBKI0o4Yp1";
 
 app.post("/addlift", (req, res) => {
   console.log(req.body);
@@ -41,6 +43,21 @@ app.get("/lifts", (req, res) => {
       res.send(result);
     }
   });
+});
+
+app.get("/lifts/dan/deadlift", (req, res) => {
+  db.query(
+    "SELECT id, lifter_id, lifter_name, exercise, weight FROM lift WHERE lifter_id = '" +
+      danUID +
+      "' AND exercise = 'deadlift'",
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
 });
 
 app.listen(3001, () => {

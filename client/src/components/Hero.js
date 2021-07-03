@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import img from "../assets/img/google.jpg";
 
 const Hero = ({ list, item }) => {

@@ -1,5 +1,4 @@
 import "../App.css";
-import { useState } from "react";
 import PanelLift from "./PanelLift";
 import { ResponsiveLine } from "@nivo/line";
 import { motion } from "framer-motion";

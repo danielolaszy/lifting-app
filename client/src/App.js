@@ -33,12 +33,6 @@ function App() {
     }
   };
 
-  const [exercise, setExercise] = useState("Deadlift");
-  const [weight, setWeight] = useState(420);
-  const [lifter, setLifter] = useState("default user");
-  const [percent, setPercent] = useState(5.6);
-  const [isGain, setIsGain] = useState(true);
-
   return (
     <AuthProvider>
       <Router>
@@ -72,17 +66,13 @@ function App() {
           </div>
         </nav>
         <Switch>
-          <Privateroute
-            path="/profile"
-            children={<Profile exercise={exercise} weight={weight} lifter={lifter} percent={percent} />}
-            isAuth={isAuth}
-          />
-          <Route path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} lifter="pogchamp" />} />
+          <Privateroute path="/profile" children={<Profile />} isAuth={isAuth} />
+          <Route path="/add" children={<PanelLiftAdd exercise="pogDeadlift" weight="pog" lifter="pogchamp" />} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route
             path="/dashboard"
-            children={<Dashboard exercise={exercise} weight={weight} lifter={lifter} percent={percent} />}
+            children={<Dashboard exercise="pogDeadlift" weight="pog" lifter="pogchamp" percent="5/7%" />}
           />
           <Route exact path="/" component={Home} />
         </Switch>
