@@ -45,10 +45,11 @@ const Profile = () => {
     getSquat();
     getBenchPress();
   }, []);
+
   return (
     <>
       <div className="container">
-        <div className="row row-cols-1 row-cols-sm-3  g-2 g-lg-3">
+        <div className="row row-cols-1 row-cols-sm-3 g-2 g-lg-3">
           <PanelLift
             exercise="Deadlift"
             weight={deadlift.weight}
@@ -64,7 +65,7 @@ const Profile = () => {
             percent="5.6%"
             percentClass="bg-danger"
           />
-          <ProfilePanel />
+          <ProfilePanel total={deadlift.weight + squat.weight + benchPress.weight} />
         </div>
         <Table />
       </div>

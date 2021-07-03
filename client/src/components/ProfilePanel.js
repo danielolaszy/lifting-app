@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-const ProfilePanel = () => {
+const ProfilePanel = ({ total }) => {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
@@ -18,7 +18,7 @@ const ProfilePanel = () => {
       setError("Failed to log out");
     }
   };
-
+  console.log(total);
   return (
     <div className="col">
       <div className="p-3 rounded-3 text-center text-sm-start color-alt border ">
@@ -36,7 +36,9 @@ const ProfilePanel = () => {
           )}
           {/* currentUser ? <Component {...props} /> : <Redirect to="/login" /> */}
           <h3 className="text-center">{currentUser.email}</h3>
-          <h6 className="text-center">Good job, you total lifts are 680lbs or 308kg </h6>
+          <h6 className="text-center">
+            Good job, you total lifts are {total}kg or ~{total * 2.205}lbs
+          </h6>
           <div>
             <input className="form-control form-control-sm" id="formFileSm" type="file"></input>
           </div>
