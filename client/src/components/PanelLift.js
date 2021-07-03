@@ -24,7 +24,7 @@ const PanelLift = ({ exercise, weight, percent, percentClass, lifter }) => {
   };
   return (
     <Router>
-      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} weight={weight} lifter={lifter} />} />
+      <Route exact path="/add" children={<PanelLiftAdd exercise={exercise} liftWeight={weight} lifter={lifter} />} />
       <Route
         exact
         path="/profile"

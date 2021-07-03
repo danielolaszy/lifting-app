@@ -67,7 +67,10 @@ function App() {
         </nav>
         <Switch>
           <Privateroute path="/profile" children={<Profile />} isAuth={isAuth} />
-          <Route path="/add" children={<PanelLiftAdd exercise="pogDeadlift" weight="pog" lifter="pogchamp" />} />
+          {/* <Route
+            path="/add"
+            children={<PanelLiftAdd weight={420} exercise="pogDeadlift" weight="pog" lifter="pogchamp" />}
+          /> */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
-const PanelLiftAdd = ({ exercise, lifter }) => {
+const PanelLiftAdd = ({ exercise, liftWeight, lifter }) => {
   const list = {
     visible: {
       opacity: 1,
@@ -57,7 +57,7 @@ const PanelLiftAdd = ({ exercise, lifter }) => {
               <input
                 pattern="[0-9]*"
                 inputMode="numeric"
-                placeholder={weight}
+                placeholder={liftWeight}
                 className="form-control form-bg-primary border"
                 onChange={(event) => {
                   setWeight(event.target.value);

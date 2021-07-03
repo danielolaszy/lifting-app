@@ -18,7 +18,6 @@ const ProfilePanel = ({ total }) => {
       setError("Failed to log out");
     }
   };
-  console.log(total);
   return (
     <div className="col">
       <div className="p-3 rounded-3 text-center text-sm-start color-alt border ">
@@ -37,7 +36,7 @@ const ProfilePanel = ({ total }) => {
           {/* currentUser ? <Component {...props} /> : <Redirect to="/login" /> */}
           <h3 className="text-center">{currentUser.email}</h3>
           <h6 className="text-center">
-            Good job, you total lifts are {total}kg or ~{total * 2.205}lbs
+            Good job, you total lifts are {total}kg or {Math.round(total * 2.205)}lbs
           </h6>
           <div>
             <input className="form-control form-control-sm" id="formFileSm" type="file"></input>
