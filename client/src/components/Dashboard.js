@@ -323,87 +323,124 @@ const list = {
 };
 
 const Dashboard = () => {
-  const [deadlift, setDeadlift] = useState({});
-  const [squat, setSquat] = useState({});
-  const [benchPress, setBenchPress] = useState({});
+  const [danDeadlift, setDanDeadlift] = useState({});
+  const [danSquat, setDanSquat] = useState({});
+  const [danBenchPress, setDanBenchPress] = useState({});
 
-  const getDeadlifts = () => {
+  const [joshDeadlift, setJoshDeadlift] = useState({});
+  const [joshSquat, setJoshSquat] = useState({});
+  const [joshBenchPress, setJoshBenchPress] = useState({});
+
+  const getDanDeadlifts = () => {
     Axios.get("http://localhost:3001/lifts").then((response) => {
       response.data.forEach((lift) => {
         if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Deadlift") {
-          setDeadlift(lift);
+          setDanDeadlift(lift);
         }
       });
     });
   };
 
-  const getSquat = () => {
+  const getDanSquat = () => {
     Axios.get("http://localhost:3001/lifts").then((response) => {
       response.data.forEach((lift) => {
         if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Squat") {
-          setSquat(lift);
+          setDanSquat(lift);
         }
       });
     });
   };
 
-  const getBenchPress = () => {
+  const getDanBenchPress = () => {
     Axios.get("http://localhost:3001/lifts").then((response) => {
       response.data.forEach((lift) => {
         if (lift.lifter_id === "mbsN9DPx5kYs2NLDt52BhGaqbqq2" && lift.exercise === "Bench Press") {
-          setBenchPress(lift);
+          setDanBenchPress(lift);
+        }
+      });
+    });
+  };
+
+  const getJoshDeadlifts = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "aEChwXDx2vXf9bmQEVQBKI0o4Yp1" && lift.exercise === "Deadlift") {
+          setJoshDeadlift(lift);
+        }
+      });
+    });
+  };
+
+  const getJoshSquat = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "aEChwXDx2vXf9bmQEVQBKI0o4Yp1" && lift.exercise === "Squat") {
+          setJoshSquat(lift);
+        }
+      });
+    });
+  };
+
+  const getJoshBenchPress = () => {
+    Axios.get("http://localhost:3001/lifts").then((response) => {
+      response.data.forEach((lift) => {
+        if (lift.lifter_id === "aEChwXDx2vXf9bmQEVQBKI0o4Yp1" && lift.exercise === "Bench Press") {
+          setJoshBenchPress(lift);
         }
       });
     });
   };
 
   useEffect(() => {
-    getDeadlifts();
-    getSquat();
-    getBenchPress();
+    getDanDeadlifts();
+    getDanSquat();
+    getDanBenchPress();
+    getJoshDeadlifts();
+    getJoshSquat();
+    getJoshBenchPress();
   }, []);
   return (
     <div className="container">
       <div className="row row-cols-1 row-cols-sm-3 row-cols-xl-6  g-2 g-lg-3">
         <PanelLift
-          exercise={deadlift.exercise}
-          weight={deadlift.weight}
-          lifter={deadlift.lifter}
+          exercise={danDeadlift.exercise}
+          weight={danDeadlift.weight}
+          lifter={danDeadlift.lifter}
           percent="5.6%"
           percentClass="bg-success"
         />
         <PanelLift
-          exercise={squat.exercise}
-          weight={squat.weight}
-          lifter={squat.lifter}
+          exercise={danSquat.exercise}
+          weight={danSquat.weight}
+          lifter={danSquat.lifter}
           percent="5.6%"
           percentClass="bg-success"
         />
         <PanelLift
-          exercise={benchPress.exercise}
-          weight={benchPress.weight}
-          lifter={benchPress.lifter}
+          exercise={danBenchPress.exercise}
+          weight={danBenchPress.weight}
+          lifter={danBenchPress.lifter}
           percent="5.6%"
           percentClass="bg-danger"
         />
         <PanelLift
-          exercise={deadlift.exercise}
-          weight={deadlift.weight}
-          lifter={deadlift.lifter}
+          exercise={joshDeadlift.exercise}
+          weight={joshDeadlift.weight}
+          lifter={joshDeadlift.lifter}
           percent="5.6%"
           percentClass="bg-success"
         />
         <PanelLift
-          exercise={squat.exercise}
-          weight={squat.weight}
-          lifter={squat.lifter}
+          exercise={joshSquat.exercise}
+          weight={joshSquat.weight}
+          lifter={joshSquat.lifter}
           percent="5.6%"
           percentClass="bg-success"
         />
         <PanelLift
-          exercise={benchPress.exercise}
-          weight={benchPress.weight}
-          lifter={benchPress.lifter}
+          exercise={joshBenchPress.exercise}
+          weight={joshBenchPress.weight}
+          lifter={joshBenchPress.lifter}
           percent="5.6%"
           percentClass="bg-success"
         />
