@@ -10,6 +10,7 @@ This projects is a work in progress React web app to track progress for weightli
 
 ## Acknowledgements
 
+- [React](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com/)
 - [react-router](https://reactrouter.com/)
 - [Axios](https://axios-http.com/)
