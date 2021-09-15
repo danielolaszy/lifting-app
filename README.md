@@ -2,7 +2,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/Voiidv2/lifting-app)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/danielolaszy/lifting-app)
 
 This projects is a work in progress React web app to track progress for weightlifting.
 
